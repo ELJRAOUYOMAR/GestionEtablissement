@@ -1,0 +1,1145 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="EducationInstituteModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="AbsenceEtudient">
+          <Key>
+            <PropertyRef Name="IdAbsence" />
+          </Key>
+          <Property Name="IdAbsence" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="dateDebut" Type="datetime" />
+          <Property Name="DateFin" Type="datetime" />
+          <Property Name="Cause" Type="varchar" MaxLength="50" />
+          <Property Name="IdEtudient" Type="int" />
+        </EntityType>
+        <EntityType Name="AbsenceProfesseur">
+          <Key>
+            <PropertyRef Name="IdAbsence" />
+          </Key>
+          <Property Name="IdAbsence" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="DateDebut" Type="datetime" />
+          <Property Name="DateFin" Type="datetime" />
+          <Property Name="Cause" Type="varchar" MaxLength="50" />
+          <Property Name="IdProfesseur" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Etudient">
+          <Key>
+            <PropertyRef Name="IdEtudient" />
+          </Key>
+          <Property Name="IdEtudient" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="CIN" Type="varchar" MaxLength="50" />
+          <Property Name="NomComplet" Type="varchar" MaxLength="50" />
+          <Property Name="Email" Type="varchar" MaxLength="50" />
+          <Property Name="Telephone" Type="varchar" MaxLength="50" />
+          <Property Name="Sexe" Type="varchar" MaxLength="50" />
+          <Property Name="dateNaissance" Type="datetime" />
+          <Property Name="Age" Type="int" />
+        </EntityType>
+        <EntityType Name="EtudientGroupe">
+          <Key>
+            <PropertyRef Name="IdGroupe" />
+            <PropertyRef Name="IdEtudient" />
+          </Key>
+          <Property Name="IdGroupe" Type="int" Nullable="false" />
+          <Property Name="IdEtudient" Type="int" Nullable="false" />
+          <Property Name="Look" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="Formation">
+          <Key>
+            <PropertyRef Name="IdFormation" />
+          </Key>
+          <Property Name="IdFormation" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="LibelleFormation" Type="varchar" MaxLength="50" />
+          <Property Name="Type_De_Formation" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="FormationGroup">
+          <Key>
+            <PropertyRef Name="IDFormation" />
+            <PropertyRef Name="IDGroup" />
+          </Key>
+          <Property Name="IDFormation" Type="int" Nullable="false" />
+          <Property Name="IDGroup" Type="int" Nullable="false" />
+          <Property Name="Datedebut" Type="date" />
+          <Property Name="DateFin" Type="date" />
+        </EntityType>
+        <EntityType Name="Groupe">
+          <Key>
+            <PropertyRef Name="IdGroupe" />
+          </Key>
+          <Property Name="IdGroupe" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Libelle" Type="varchar" MaxLength="50" />
+          <Property Name="MaxPlace" Type="int" />
+          <Property Name="IdFormation" Type="int" />
+        </EntityType>
+        <EntityType Name="Historique">
+          <Key>
+            <PropertyRef Name="IdAction" />
+          </Key>
+          <Property Name="IdAction" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Action" Type="varchar" MaxLength="150" />
+          <Property Name="dateAction" Type="datetime" />
+          <Property Name="IdUtilisateur" Type="int" />
+        </EntityType>
+        <EntityType Name="PieceEtudient">
+          <Key>
+            <PropertyRef Name="IdPiece" />
+          </Key>
+          <Property Name="IdPiece" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Chemin" Type="varchar" MaxLength="50" />
+          <Property Name="Piece" Type="varchar" MaxLength="50" />
+          <Property Name="Photo" Type="image" />
+          <Property Name="IdEtudient" Type="int" />
+        </EntityType>
+        <EntityType Name="PieceProfesseur">
+          <Key>
+            <PropertyRef Name="IdPiece" />
+          </Key>
+          <Property Name="IdPiece" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Chemin" Type="varchar" MaxLength="50" />
+          <Property Name="Photo" Type="image" />
+          <Property Name="piece" Type="varchar" MaxLength="50" />
+          <Property Name="IdProfesseur" Type="int" />
+        </EntityType>
+        <EntityType Name="Professeur">
+          <Key>
+            <PropertyRef Name="IdProf" />
+          </Key>
+          <Property Name="IdProf" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="CIN" Type="varchar" MaxLength="50" />
+          <Property Name="Email" Type="varchar" MaxLength="50" />
+          <Property Name="Adresse" Type="varchar" MaxLength="50" />
+          <Property Name="Telephone" Type="varchar" MaxLength="50" />
+          <Property Name="NomComplet" Type="varchar" MaxLength="50" />
+          <Property Name="Sexe" Type="varchar" MaxLength="50" />
+          <Property Name="DateNaissance" Type="date" />
+          <Property Name="age" Type="int" />
+          <Property Name="Salaire" Type="float" />
+        </EntityType>
+        <EntityType Name="ProfesseurFormation">
+          <Key>
+            <PropertyRef Name="IdFormation" />
+            <PropertyRef Name="IdProfesseur" />
+          </Key>
+          <Property Name="IdFormation" Type="int" Nullable="false" />
+          <Property Name="IdProfesseur" Type="int" Nullable="false" />
+          <Property Name="Look" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="ProfesseurGroupe">
+          <Key>
+            <PropertyRef Name="IdGroupe" />
+            <PropertyRef Name="IdProfesseur" />
+          </Key>
+          <Property Name="IdGroupe" Type="int" Nullable="false" />
+          <Property Name="IdProfesseur" Type="int" Nullable="false" />
+          <Property Name="Look" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="Seance">
+          <Key>
+            <PropertyRef Name="IdSeance" />
+          </Key>
+          <Property Name="IdSeance" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Année_de_seance" Type="int" />
+          <Property Name="Mois_de_seance" Type="varchar" MaxLength="50" />
+          <Property Name="Jour_de_seance" Type="varchar" MaxLength="50" />
+          <Property Name="Heure_Debut" Type="varchar" MaxLength="50" />
+          <Property Name="Heure_Fin" Type="varchar" MaxLength="50" />
+          <Property Name="Etat" Type="varchar" MaxLength="50" />
+          <Property Name="Id_Professeur" Type="int" />
+          <Property Name="Id_Group" Type="int" />
+          <Property Name="Id_Formation" Type="int" />
+          <Property Name="Salle" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="Utilisateur">
+          <Key>
+            <PropertyRef Name="IdUtilisateur" />
+          </Key>
+          <Property Name="IdUtilisateur" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="CIN" Type="varchar" MaxLength="50" />
+          <Property Name="NomComplet" Type="varchar" MaxLength="50" />
+          <Property Name="Email" Type="varchar" MaxLength="50" />
+          <Property Name="Password" Type="varchar" MaxLength="50" />
+          <Property Name="Role" Type="varchar" MaxLength="50" />
+          <Property Name="Photo" Type="image" />
+          <Property Name="Telephone" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <Association Name="FK_AbsenceEtudient_Etudient">
+          <End Role="Etudient" Type="Self.Etudient" Multiplicity="0..1" />
+          <End Role="AbsenceEtudient" Type="Self.AbsenceEtudient" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Etudient">
+              <PropertyRef Name="IdEtudient" />
+            </Principal>
+            <Dependent Role="AbsenceEtudient">
+              <PropertyRef Name="IdEtudient" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_AbsenceProfesseur_Professeur">
+          <End Role="Professeur" Type="Self.Professeur" Multiplicity="1" />
+          <End Role="AbsenceProfesseur" Type="Self.AbsenceProfesseur" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Professeur">
+              <PropertyRef Name="IdProf" />
+            </Principal>
+            <Dependent Role="AbsenceProfesseur">
+              <PropertyRef Name="IdProfesseur" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_EtudientGroupe_Etudient">
+          <End Role="Etudient" Type="Self.Etudient" Multiplicity="1" />
+          <End Role="EtudientGroupe" Type="Self.EtudientGroupe" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Etudient">
+              <PropertyRef Name="IdEtudient" />
+            </Principal>
+            <Dependent Role="EtudientGroupe">
+              <PropertyRef Name="IdEtudient" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_EtudientGroupe_Groupe">
+          <End Role="Groupe" Type="Self.Groupe" Multiplicity="1" />
+          <End Role="EtudientGroupe" Type="Self.EtudientGroupe" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Groupe">
+              <PropertyRef Name="IdGroupe" />
+            </Principal>
+            <Dependent Role="EtudientGroupe">
+              <PropertyRef Name="IdGroupe" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_FormationGroup_Formation">
+          <End Role="Formation" Type="Self.Formation" Multiplicity="1" />
+          <End Role="FormationGroup" Type="Self.FormationGroup" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Formation">
+              <PropertyRef Name="IdFormation" />
+            </Principal>
+            <Dependent Role="FormationGroup">
+              <PropertyRef Name="IDFormation" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_FormationGroup_Groupe">
+          <End Role="Groupe" Type="Self.Groupe" Multiplicity="1" />
+          <End Role="FormationGroup" Type="Self.FormationGroup" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Groupe">
+              <PropertyRef Name="IdGroupe" />
+            </Principal>
+            <Dependent Role="FormationGroup">
+              <PropertyRef Name="IDGroup" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Groupe_Formation">
+          <End Role="Formation" Type="Self.Formation" Multiplicity="0..1" />
+          <End Role="Groupe" Type="Self.Groupe" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Formation">
+              <PropertyRef Name="IdFormation" />
+            </Principal>
+            <Dependent Role="Groupe">
+              <PropertyRef Name="IdFormation" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Historique_Historique">
+          <End Role="Utilisateur" Type="Self.Utilisateur" Multiplicity="0..1" />
+          <End Role="Historique" Type="Self.Historique" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Utilisateur">
+              <PropertyRef Name="IdUtilisateur" />
+            </Principal>
+            <Dependent Role="Historique">
+              <PropertyRef Name="IdUtilisateur" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_PieceEtudient_Etudient">
+          <End Role="Etudient" Type="Self.Etudient" Multiplicity="0..1" />
+          <End Role="PieceEtudient" Type="Self.PieceEtudient" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Etudient">
+              <PropertyRef Name="IdEtudient" />
+            </Principal>
+            <Dependent Role="PieceEtudient">
+              <PropertyRef Name="IdEtudient" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_PieceProfesseur_Professeur">
+          <End Role="Professeur" Type="Self.Professeur" Multiplicity="0..1" />
+          <End Role="PieceProfesseur" Type="Self.PieceProfesseur" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Professeur">
+              <PropertyRef Name="IdProf" />
+            </Principal>
+            <Dependent Role="PieceProfesseur">
+              <PropertyRef Name="IdProfesseur" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ProfesseurFormation_Formation">
+          <End Role="Formation" Type="Self.Formation" Multiplicity="1" />
+          <End Role="ProfesseurFormation" Type="Self.ProfesseurFormation" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Formation">
+              <PropertyRef Name="IdFormation" />
+            </Principal>
+            <Dependent Role="ProfesseurFormation">
+              <PropertyRef Name="IdFormation" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ProfesseurFormation_Professeur">
+          <End Role="Professeur" Type="Self.Professeur" Multiplicity="1" />
+          <End Role="ProfesseurFormation" Type="Self.ProfesseurFormation" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Professeur">
+              <PropertyRef Name="IdProf" />
+            </Principal>
+            <Dependent Role="ProfesseurFormation">
+              <PropertyRef Name="IdProfesseur" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ProfesseurGroupe_Groupe">
+          <End Role="Groupe" Type="Self.Groupe" Multiplicity="1" />
+          <End Role="ProfesseurGroupe" Type="Self.ProfesseurGroupe" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Groupe">
+              <PropertyRef Name="IdGroupe" />
+            </Principal>
+            <Dependent Role="ProfesseurGroupe">
+              <PropertyRef Name="IdGroupe" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ProfesseurGroupe_Professeur">
+          <End Role="Professeur" Type="Self.Professeur" Multiplicity="1" />
+          <End Role="ProfesseurGroupe" Type="Self.ProfesseurGroupe" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Professeur">
+              <PropertyRef Name="IdProf" />
+            </Principal>
+            <Dependent Role="ProfesseurGroupe">
+              <PropertyRef Name="IdProfesseur" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Seance_Formation">
+          <End Role="Formation" Type="Self.Formation" Multiplicity="0..1" />
+          <End Role="Seance" Type="Self.Seance" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Formation">
+              <PropertyRef Name="IdFormation" />
+            </Principal>
+            <Dependent Role="Seance">
+              <PropertyRef Name="Id_Formation" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Seance_Groupe">
+          <End Role="Groupe" Type="Self.Groupe" Multiplicity="0..1" />
+          <End Role="Seance" Type="Self.Seance" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Groupe">
+              <PropertyRef Name="IdGroupe" />
+            </Principal>
+            <Dependent Role="Seance">
+              <PropertyRef Name="Id_Group" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Seance_Professeur">
+          <End Role="Professeur" Type="Self.Professeur" Multiplicity="0..1" />
+          <End Role="Seance" Type="Self.Seance" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Professeur">
+              <PropertyRef Name="IdProf" />
+            </Principal>
+            <Dependent Role="Seance">
+              <PropertyRef Name="Id_Professeur" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="EducationInstituteModelStoreContainer">
+          <EntitySet Name="AbsenceEtudient" EntityType="Self.AbsenceEtudient" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="AbsenceProfesseur" EntityType="Self.AbsenceProfesseur" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Etudient" EntityType="Self.Etudient" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="EtudientGroupe" EntityType="Self.EtudientGroupe" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Formation" EntityType="Self.Formation" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="FormationGroup" EntityType="Self.FormationGroup" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Groupe" EntityType="Self.Groupe" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Historique" EntityType="Self.Historique" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="PieceEtudient" EntityType="Self.PieceEtudient" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="PieceProfesseur" EntityType="Self.PieceProfesseur" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Professeur" EntityType="Self.Professeur" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ProfesseurFormation" EntityType="Self.ProfesseurFormation" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ProfesseurGroupe" EntityType="Self.ProfesseurGroupe" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Seance" EntityType="Self.Seance" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Utilisateur" EntityType="Self.Utilisateur" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_AbsenceEtudient_Etudient" Association="Self.FK_AbsenceEtudient_Etudient">
+            <End Role="Etudient" EntitySet="Etudient" />
+            <End Role="AbsenceEtudient" EntitySet="AbsenceEtudient" />
+          </AssociationSet>
+          <AssociationSet Name="FK_AbsenceProfesseur_Professeur" Association="Self.FK_AbsenceProfesseur_Professeur">
+            <End Role="Professeur" EntitySet="Professeur" />
+            <End Role="AbsenceProfesseur" EntitySet="AbsenceProfesseur" />
+          </AssociationSet>
+          <AssociationSet Name="FK_EtudientGroupe_Etudient" Association="Self.FK_EtudientGroupe_Etudient">
+            <End Role="Etudient" EntitySet="Etudient" />
+            <End Role="EtudientGroupe" EntitySet="EtudientGroupe" />
+          </AssociationSet>
+          <AssociationSet Name="FK_EtudientGroupe_Groupe" Association="Self.FK_EtudientGroupe_Groupe">
+            <End Role="Groupe" EntitySet="Groupe" />
+            <End Role="EtudientGroupe" EntitySet="EtudientGroupe" />
+          </AssociationSet>
+          <AssociationSet Name="FK_FormationGroup_Formation" Association="Self.FK_FormationGroup_Formation">
+            <End Role="Formation" EntitySet="Formation" />
+            <End Role="FormationGroup" EntitySet="FormationGroup" />
+          </AssociationSet>
+          <AssociationSet Name="FK_FormationGroup_Groupe" Association="Self.FK_FormationGroup_Groupe">
+            <End Role="Groupe" EntitySet="Groupe" />
+            <End Role="FormationGroup" EntitySet="FormationGroup" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Groupe_Formation" Association="Self.FK_Groupe_Formation">
+            <End Role="Formation" EntitySet="Formation" />
+            <End Role="Groupe" EntitySet="Groupe" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Historique_Historique" Association="Self.FK_Historique_Historique">
+            <End Role="Utilisateur" EntitySet="Utilisateur" />
+            <End Role="Historique" EntitySet="Historique" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PieceEtudient_Etudient" Association="Self.FK_PieceEtudient_Etudient">
+            <End Role="Etudient" EntitySet="Etudient" />
+            <End Role="PieceEtudient" EntitySet="PieceEtudient" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PieceProfesseur_Professeur" Association="Self.FK_PieceProfesseur_Professeur">
+            <End Role="Professeur" EntitySet="Professeur" />
+            <End Role="PieceProfesseur" EntitySet="PieceProfesseur" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ProfesseurFormation_Formation" Association="Self.FK_ProfesseurFormation_Formation">
+            <End Role="Formation" EntitySet="Formation" />
+            <End Role="ProfesseurFormation" EntitySet="ProfesseurFormation" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ProfesseurFormation_Professeur" Association="Self.FK_ProfesseurFormation_Professeur">
+            <End Role="Professeur" EntitySet="Professeur" />
+            <End Role="ProfesseurFormation" EntitySet="ProfesseurFormation" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ProfesseurGroupe_Groupe" Association="Self.FK_ProfesseurGroupe_Groupe">
+            <End Role="Groupe" EntitySet="Groupe" />
+            <End Role="ProfesseurGroupe" EntitySet="ProfesseurGroupe" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ProfesseurGroupe_Professeur" Association="Self.FK_ProfesseurGroupe_Professeur">
+            <End Role="Professeur" EntitySet="Professeur" />
+            <End Role="ProfesseurGroupe" EntitySet="ProfesseurGroupe" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Seance_Formation" Association="Self.FK_Seance_Formation">
+            <End Role="Formation" EntitySet="Formation" />
+            <End Role="Seance" EntitySet="Seance" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Seance_Groupe" Association="Self.FK_Seance_Groupe">
+            <End Role="Groupe" EntitySet="Groupe" />
+            <End Role="Seance" EntitySet="Seance" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Seance_Professeur" Association="Self.FK_Seance_Professeur">
+            <End Role="Professeur" EntitySet="Professeur" />
+            <End Role="Seance" EntitySet="Seance" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="EducationInstituteModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="AbsenceEtudient">
+          <Key>
+            <PropertyRef Name="IdAbsence" />
+          </Key>
+          <Property Name="IdAbsence" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="dateDebut" Type="DateTime" Precision="3" />
+          <Property Name="DateFin" Type="DateTime" Precision="3" />
+          <Property Name="Cause" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="IdEtudient" Type="Int32" />
+          <NavigationProperty Name="Etudient" Relationship="Self.FK_AbsenceEtudient_Etudient" FromRole="AbsenceEtudient" ToRole="Etudient" />
+        </EntityType>
+        <EntityType Name="AbsenceProfesseur">
+          <Key>
+            <PropertyRef Name="IdAbsence" />
+          </Key>
+          <Property Name="IdAbsence" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="DateDebut" Type="DateTime" Precision="3" />
+          <Property Name="DateFin" Type="DateTime" Precision="3" />
+          <Property Name="Cause" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="IdProfesseur" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Professeur" Relationship="Self.FK_AbsenceProfesseur_Professeur" FromRole="AbsenceProfesseur" ToRole="Professeur" />
+        </EntityType>
+        <EntityType Name="Etudient">
+          <Key>
+            <PropertyRef Name="IdEtudient" />
+          </Key>
+          <Property Name="IdEtudient" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="CIN" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="NomComplet" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Email" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Telephone" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Sexe" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="dateNaissance" Type="DateTime" Precision="3" />
+          <Property Name="Age" Type="Int32" />
+          <NavigationProperty Name="AbsenceEtudients" Relationship="Self.FK_AbsenceEtudient_Etudient" FromRole="Etudient" ToRole="AbsenceEtudient" />
+          <NavigationProperty Name="EtudientGroupes" Relationship="Self.FK_EtudientGroupe_Etudient" FromRole="Etudient" ToRole="EtudientGroupe" />
+          <NavigationProperty Name="PieceEtudients" Relationship="Self.FK_PieceEtudient_Etudient" FromRole="Etudient" ToRole="PieceEtudient" />
+        </EntityType>
+        <EntityType Name="EtudientGroupe">
+          <Key>
+            <PropertyRef Name="IdGroupe" />
+            <PropertyRef Name="IdEtudient" />
+          </Key>
+          <Property Name="IdGroupe" Type="Int32" Nullable="false" />
+          <Property Name="IdEtudient" Type="Int32" Nullable="false" />
+          <Property Name="Look" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Etudient" Relationship="Self.FK_EtudientGroupe_Etudient" FromRole="EtudientGroupe" ToRole="Etudient" />
+          <NavigationProperty Name="Groupe" Relationship="Self.FK_EtudientGroupe_Groupe" FromRole="EtudientGroupe" ToRole="Groupe" />
+        </EntityType>
+        <EntityType Name="Formation">
+          <Key>
+            <PropertyRef Name="IdFormation" />
+          </Key>
+          <Property Name="IdFormation" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="LibelleFormation" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Type_De_Formation" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="FormationGroups" Relationship="Self.FK_FormationGroup_Formation" FromRole="Formation" ToRole="FormationGroup" />
+          <NavigationProperty Name="Groupes" Relationship="Self.FK_Groupe_Formation" FromRole="Formation" ToRole="Groupe" />
+          <NavigationProperty Name="ProfesseurFormations" Relationship="Self.FK_ProfesseurFormation_Formation" FromRole="Formation" ToRole="ProfesseurFormation" />
+          <NavigationProperty Name="Seances" Relationship="Self.FK_Seance_Formation" FromRole="Formation" ToRole="Seance" />
+        </EntityType>
+        <EntityType Name="FormationGroup">
+          <Key>
+            <PropertyRef Name="IDFormation" />
+            <PropertyRef Name="IDGroup" />
+          </Key>
+          <Property Name="IDFormation" Type="Int32" Nullable="false" />
+          <Property Name="IDGroup" Type="Int32" Nullable="false" />
+          <Property Name="Datedebut" Type="DateTime" Precision="0" />
+          <Property Name="DateFin" Type="DateTime" Precision="0" />
+          <NavigationProperty Name="Formation" Relationship="Self.FK_FormationGroup_Formation" FromRole="FormationGroup" ToRole="Formation" />
+          <NavigationProperty Name="Groupe" Relationship="Self.FK_FormationGroup_Groupe" FromRole="FormationGroup" ToRole="Groupe" />
+        </EntityType>
+        <EntityType Name="Groupe">
+          <Key>
+            <PropertyRef Name="IdGroupe" />
+          </Key>
+          <Property Name="IdGroupe" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Libelle" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="MaxPlace" Type="Int32" />
+          <Property Name="IdFormation" Type="Int32" />
+          <NavigationProperty Name="EtudientGroupes" Relationship="Self.FK_EtudientGroupe_Groupe" FromRole="Groupe" ToRole="EtudientGroupe" />
+          <NavigationProperty Name="Formation" Relationship="Self.FK_Groupe_Formation" FromRole="Groupe" ToRole="Formation" />
+          <NavigationProperty Name="FormationGroups" Relationship="Self.FK_FormationGroup_Groupe" FromRole="Groupe" ToRole="FormationGroup" />
+          <NavigationProperty Name="ProfesseurGroupes" Relationship="Self.FK_ProfesseurGroupe_Groupe" FromRole="Groupe" ToRole="ProfesseurGroupe" />
+          <NavigationProperty Name="Seances" Relationship="Self.FK_Seance_Groupe" FromRole="Groupe" ToRole="Seance" />
+        </EntityType>
+        <EntityType Name="Historique">
+          <Key>
+            <PropertyRef Name="IdAction" />
+          </Key>
+          <Property Name="IdAction" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Action" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
+          <Property Name="dateAction" Type="DateTime" Precision="3" />
+          <Property Name="IdUtilisateur" Type="Int32" />
+          <NavigationProperty Name="Utilisateur" Relationship="Self.FK_Historique_Historique" FromRole="Historique" ToRole="Utilisateur" />
+        </EntityType>
+        <EntityType Name="PieceEtudient">
+          <Key>
+            <PropertyRef Name="IdPiece" />
+          </Key>
+          <Property Name="IdPiece" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Chemin" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Piece" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Photo" Type="Binary" MaxLength="Max" FixedLength="false" />
+          <Property Name="IdEtudient" Type="Int32" />
+          <NavigationProperty Name="Etudient" Relationship="Self.FK_PieceEtudient_Etudient" FromRole="PieceEtudient" ToRole="Etudient" />
+        </EntityType>
+        <EntityType Name="PieceProfesseur">
+          <Key>
+            <PropertyRef Name="IdPiece" />
+          </Key>
+          <Property Name="IdPiece" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Chemin" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Photo" Type="Binary" MaxLength="Max" FixedLength="false" />
+          <Property Name="piece" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="IdProfesseur" Type="Int32" />
+          <NavigationProperty Name="Professeur" Relationship="Self.FK_PieceProfesseur_Professeur" FromRole="PieceProfesseur" ToRole="Professeur" />
+        </EntityType>
+        <EntityType Name="Professeur">
+          <Key>
+            <PropertyRef Name="IdProf" />
+          </Key>
+          <Property Name="IdProf" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="CIN" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Email" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Adresse" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Telephone" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="NomComplet" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Sexe" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="DateNaissance" Type="DateTime" Precision="0" />
+          <Property Name="age" Type="Int32" />
+          <Property Name="Salaire" Type="Double" />
+          <NavigationProperty Name="AbsenceProfesseurs" Relationship="Self.FK_AbsenceProfesseur_Professeur" FromRole="Professeur" ToRole="AbsenceProfesseur" />
+          <NavigationProperty Name="PieceProfesseurs" Relationship="Self.FK_PieceProfesseur_Professeur" FromRole="Professeur" ToRole="PieceProfesseur" />
+          <NavigationProperty Name="ProfesseurFormations" Relationship="Self.FK_ProfesseurFormation_Professeur" FromRole="Professeur" ToRole="ProfesseurFormation" />
+          <NavigationProperty Name="ProfesseurGroupes" Relationship="Self.FK_ProfesseurGroupe_Professeur" FromRole="Professeur" ToRole="ProfesseurGroupe" />
+          <NavigationProperty Name="Seances" Relationship="Self.FK_Seance_Professeur" FromRole="Professeur" ToRole="Seance" />
+        </EntityType>
+        <EntityType Name="ProfesseurFormation">
+          <Key>
+            <PropertyRef Name="IdFormation" />
+            <PropertyRef Name="IdProfesseur" />
+          </Key>
+          <Property Name="IdFormation" Type="Int32" Nullable="false" />
+          <Property Name="IdProfesseur" Type="Int32" Nullable="false" />
+          <Property Name="Look" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Formation" Relationship="Self.FK_ProfesseurFormation_Formation" FromRole="ProfesseurFormation" ToRole="Formation" />
+          <NavigationProperty Name="Professeur" Relationship="Self.FK_ProfesseurFormation_Professeur" FromRole="ProfesseurFormation" ToRole="Professeur" />
+        </EntityType>
+        <EntityType Name="ProfesseurGroupe">
+          <Key>
+            <PropertyRef Name="IdGroupe" />
+            <PropertyRef Name="IdProfesseur" />
+          </Key>
+          <Property Name="IdGroupe" Type="Int32" Nullable="false" />
+          <Property Name="IdProfesseur" Type="Int32" Nullable="false" />
+          <Property Name="Look" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Groupe" Relationship="Self.FK_ProfesseurGroupe_Groupe" FromRole="ProfesseurGroupe" ToRole="Groupe" />
+          <NavigationProperty Name="Professeur" Relationship="Self.FK_ProfesseurGroupe_Professeur" FromRole="ProfesseurGroupe" ToRole="Professeur" />
+        </EntityType>
+        <EntityType Name="Seance">
+          <Key>
+            <PropertyRef Name="IdSeance" />
+          </Key>
+          <Property Name="IdSeance" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Année_de_seance" Type="Int32" />
+          <Property Name="Mois_de_seance" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Jour_de_seance" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Heure_Debut" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Heure_Fin" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Etat" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Id_Professeur" Type="Int32" />
+          <Property Name="Id_Group" Type="Int32" />
+          <Property Name="Id_Formation" Type="Int32" />
+          <Property Name="Salle" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Formation" Relationship="Self.FK_Seance_Formation" FromRole="Seance" ToRole="Formation" />
+          <NavigationProperty Name="Groupe" Relationship="Self.FK_Seance_Groupe" FromRole="Seance" ToRole="Groupe" />
+          <NavigationProperty Name="Professeur" Relationship="Self.FK_Seance_Professeur" FromRole="Seance" ToRole="Professeur" />
+        </EntityType>
+        <EntityType Name="Utilisateur">
+          <Key>
+            <PropertyRef Name="IdUtilisateur" />
+          </Key>
+          <Property Name="IdUtilisateur" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="CIN" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="NomComplet" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Email" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Password" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Role" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Photo" Type="Binary" MaxLength="Max" FixedLength="false" />
+          <Property Name="Telephone" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Historiques" Relationship="Self.FK_Historique_Historique" FromRole="Utilisateur" ToRole="Historique" />
+        </EntityType>
+        <Association Name="FK_AbsenceEtudient_Etudient">
+          <End Role="Etudient" Type="Self.Etudient" Multiplicity="0..1" />
+          <End Role="AbsenceEtudient" Type="Self.AbsenceEtudient" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Etudient">
+              <PropertyRef Name="IdEtudient" />
+            </Principal>
+            <Dependent Role="AbsenceEtudient">
+              <PropertyRef Name="IdEtudient" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_AbsenceProfesseur_Professeur">
+          <End Role="Professeur" Type="Self.Professeur" Multiplicity="1" />
+          <End Role="AbsenceProfesseur" Type="Self.AbsenceProfesseur" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Professeur">
+              <PropertyRef Name="IdProf" />
+            </Principal>
+            <Dependent Role="AbsenceProfesseur">
+              <PropertyRef Name="IdProfesseur" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_EtudientGroupe_Etudient">
+          <End Role="Etudient" Type="Self.Etudient" Multiplicity="1" />
+          <End Role="EtudientGroupe" Type="Self.EtudientGroupe" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Etudient">
+              <PropertyRef Name="IdEtudient" />
+            </Principal>
+            <Dependent Role="EtudientGroupe">
+              <PropertyRef Name="IdEtudient" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_PieceEtudient_Etudient">
+          <End Role="Etudient" Type="Self.Etudient" Multiplicity="0..1" />
+          <End Role="PieceEtudient" Type="Self.PieceEtudient" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Etudient">
+              <PropertyRef Name="IdEtudient" />
+            </Principal>
+            <Dependent Role="PieceEtudient">
+              <PropertyRef Name="IdEtudient" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_EtudientGroupe_Groupe">
+          <End Role="Groupe" Type="Self.Groupe" Multiplicity="1" />
+          <End Role="EtudientGroupe" Type="Self.EtudientGroupe" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Groupe">
+              <PropertyRef Name="IdGroupe" />
+            </Principal>
+            <Dependent Role="EtudientGroupe">
+              <PropertyRef Name="IdGroupe" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_FormationGroup_Formation">
+          <End Role="Formation" Type="Self.Formation" Multiplicity="1" />
+          <End Role="FormationGroup" Type="Self.FormationGroup" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Formation">
+              <PropertyRef Name="IdFormation" />
+            </Principal>
+            <Dependent Role="FormationGroup">
+              <PropertyRef Name="IDFormation" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Groupe_Formation">
+          <End Role="Formation" Type="Self.Formation" Multiplicity="0..1" />
+          <End Role="Groupe" Type="Self.Groupe" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Formation">
+              <PropertyRef Name="IdFormation" />
+            </Principal>
+            <Dependent Role="Groupe">
+              <PropertyRef Name="IdFormation" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ProfesseurFormation_Formation">
+          <End Role="Formation" Type="Self.Formation" Multiplicity="1" />
+          <End Role="ProfesseurFormation" Type="Self.ProfesseurFormation" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Formation">
+              <PropertyRef Name="IdFormation" />
+            </Principal>
+            <Dependent Role="ProfesseurFormation">
+              <PropertyRef Name="IdFormation" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Seance_Formation">
+          <End Role="Formation" Type="Self.Formation" Multiplicity="0..1" />
+          <End Role="Seance" Type="Self.Seance" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Formation">
+              <PropertyRef Name="IdFormation" />
+            </Principal>
+            <Dependent Role="Seance">
+              <PropertyRef Name="Id_Formation" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_FormationGroup_Groupe">
+          <End Role="Groupe" Type="Self.Groupe" Multiplicity="1" />
+          <End Role="FormationGroup" Type="Self.FormationGroup" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Groupe">
+              <PropertyRef Name="IdGroupe" />
+            </Principal>
+            <Dependent Role="FormationGroup">
+              <PropertyRef Name="IDGroup" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ProfesseurGroupe_Groupe">
+          <End Role="Groupe" Type="Self.Groupe" Multiplicity="1" />
+          <End Role="ProfesseurGroupe" Type="Self.ProfesseurGroupe" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Groupe">
+              <PropertyRef Name="IdGroupe" />
+            </Principal>
+            <Dependent Role="ProfesseurGroupe">
+              <PropertyRef Name="IdGroupe" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Seance_Groupe">
+          <End Role="Groupe" Type="Self.Groupe" Multiplicity="0..1" />
+          <End Role="Seance" Type="Self.Seance" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Groupe">
+              <PropertyRef Name="IdGroupe" />
+            </Principal>
+            <Dependent Role="Seance">
+              <PropertyRef Name="Id_Group" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Historique_Historique">
+          <End Role="Utilisateur" Type="Self.Utilisateur" Multiplicity="0..1" />
+          <End Role="Historique" Type="Self.Historique" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Utilisateur">
+              <PropertyRef Name="IdUtilisateur" />
+            </Principal>
+            <Dependent Role="Historique">
+              <PropertyRef Name="IdUtilisateur" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_PieceProfesseur_Professeur">
+          <End Role="Professeur" Type="Self.Professeur" Multiplicity="0..1" />
+          <End Role="PieceProfesseur" Type="Self.PieceProfesseur" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Professeur">
+              <PropertyRef Name="IdProf" />
+            </Principal>
+            <Dependent Role="PieceProfesseur">
+              <PropertyRef Name="IdProfesseur" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ProfesseurFormation_Professeur">
+          <End Role="Professeur" Type="Self.Professeur" Multiplicity="1" />
+          <End Role="ProfesseurFormation" Type="Self.ProfesseurFormation" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Professeur">
+              <PropertyRef Name="IdProf" />
+            </Principal>
+            <Dependent Role="ProfesseurFormation">
+              <PropertyRef Name="IdProfesseur" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ProfesseurGroupe_Professeur">
+          <End Role="Professeur" Type="Self.Professeur" Multiplicity="1" />
+          <End Role="ProfesseurGroupe" Type="Self.ProfesseurGroupe" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Professeur">
+              <PropertyRef Name="IdProf" />
+            </Principal>
+            <Dependent Role="ProfesseurGroupe">
+              <PropertyRef Name="IdProfesseur" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Seance_Professeur">
+          <End Role="Professeur" Type="Self.Professeur" Multiplicity="0..1" />
+          <End Role="Seance" Type="Self.Seance" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Professeur">
+              <PropertyRef Name="IdProf" />
+            </Principal>
+            <Dependent Role="Seance">
+              <PropertyRef Name="Id_Professeur" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="EducationInstitute" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="AbsenceEtudients" EntityType="Self.AbsenceEtudient" />
+          <EntitySet Name="AbsenceProfesseurs" EntityType="Self.AbsenceProfesseur" />
+          <EntitySet Name="Etudients" EntityType="Self.Etudient" />
+          <EntitySet Name="EtudientGroupes" EntityType="Self.EtudientGroupe" />
+          <EntitySet Name="Formations" EntityType="Self.Formation" />
+          <EntitySet Name="FormationGroups" EntityType="Self.FormationGroup" />
+          <EntitySet Name="Groupes" EntityType="Self.Groupe" />
+          <EntitySet Name="Historiques" EntityType="Self.Historique" />
+          <EntitySet Name="PieceEtudients" EntityType="Self.PieceEtudient" />
+          <EntitySet Name="PieceProfesseurs" EntityType="Self.PieceProfesseur" />
+          <EntitySet Name="Professeurs" EntityType="Self.Professeur" />
+          <EntitySet Name="ProfesseurFormations" EntityType="Self.ProfesseurFormation" />
+          <EntitySet Name="ProfesseurGroupes" EntityType="Self.ProfesseurGroupe" />
+          <EntitySet Name="Seances" EntityType="Self.Seance" />
+          <EntitySet Name="Utilisateurs" EntityType="Self.Utilisateur" />
+          <AssociationSet Name="FK_AbsenceEtudient_Etudient" Association="Self.FK_AbsenceEtudient_Etudient">
+            <End Role="Etudient" EntitySet="Etudients" />
+            <End Role="AbsenceEtudient" EntitySet="AbsenceEtudients" />
+          </AssociationSet>
+          <AssociationSet Name="FK_AbsenceProfesseur_Professeur" Association="Self.FK_AbsenceProfesseur_Professeur">
+            <End Role="Professeur" EntitySet="Professeurs" />
+            <End Role="AbsenceProfesseur" EntitySet="AbsenceProfesseurs" />
+          </AssociationSet>
+          <AssociationSet Name="FK_EtudientGroupe_Etudient" Association="Self.FK_EtudientGroupe_Etudient">
+            <End Role="Etudient" EntitySet="Etudients" />
+            <End Role="EtudientGroupe" EntitySet="EtudientGroupes" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PieceEtudient_Etudient" Association="Self.FK_PieceEtudient_Etudient">
+            <End Role="Etudient" EntitySet="Etudients" />
+            <End Role="PieceEtudient" EntitySet="PieceEtudients" />
+          </AssociationSet>
+          <AssociationSet Name="FK_EtudientGroupe_Groupe" Association="Self.FK_EtudientGroupe_Groupe">
+            <End Role="Groupe" EntitySet="Groupes" />
+            <End Role="EtudientGroupe" EntitySet="EtudientGroupes" />
+          </AssociationSet>
+          <AssociationSet Name="FK_FormationGroup_Formation" Association="Self.FK_FormationGroup_Formation">
+            <End Role="Formation" EntitySet="Formations" />
+            <End Role="FormationGroup" EntitySet="FormationGroups" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Groupe_Formation" Association="Self.FK_Groupe_Formation">
+            <End Role="Formation" EntitySet="Formations" />
+            <End Role="Groupe" EntitySet="Groupes" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ProfesseurFormation_Formation" Association="Self.FK_ProfesseurFormation_Formation">
+            <End Role="Formation" EntitySet="Formations" />
+            <End Role="ProfesseurFormation" EntitySet="ProfesseurFormations" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Seance_Formation" Association="Self.FK_Seance_Formation">
+            <End Role="Formation" EntitySet="Formations" />
+            <End Role="Seance" EntitySet="Seances" />
+          </AssociationSet>
+          <AssociationSet Name="FK_FormationGroup_Groupe" Association="Self.FK_FormationGroup_Groupe">
+            <End Role="Groupe" EntitySet="Groupes" />
+            <End Role="FormationGroup" EntitySet="FormationGroups" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ProfesseurGroupe_Groupe" Association="Self.FK_ProfesseurGroupe_Groupe">
+            <End Role="Groupe" EntitySet="Groupes" />
+            <End Role="ProfesseurGroupe" EntitySet="ProfesseurGroupes" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Seance_Groupe" Association="Self.FK_Seance_Groupe">
+            <End Role="Groupe" EntitySet="Groupes" />
+            <End Role="Seance" EntitySet="Seances" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Historique_Historique" Association="Self.FK_Historique_Historique">
+            <End Role="Utilisateur" EntitySet="Utilisateurs" />
+            <End Role="Historique" EntitySet="Historiques" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PieceProfesseur_Professeur" Association="Self.FK_PieceProfesseur_Professeur">
+            <End Role="Professeur" EntitySet="Professeurs" />
+            <End Role="PieceProfesseur" EntitySet="PieceProfesseurs" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ProfesseurFormation_Professeur" Association="Self.FK_ProfesseurFormation_Professeur">
+            <End Role="Professeur" EntitySet="Professeurs" />
+            <End Role="ProfesseurFormation" EntitySet="ProfesseurFormations" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ProfesseurGroupe_Professeur" Association="Self.FK_ProfesseurGroupe_Professeur">
+            <End Role="Professeur" EntitySet="Professeurs" />
+            <End Role="ProfesseurGroupe" EntitySet="ProfesseurGroupes" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Seance_Professeur" Association="Self.FK_Seance_Professeur">
+            <End Role="Professeur" EntitySet="Professeurs" />
+            <End Role="Seance" EntitySet="Seances" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="EducationInstituteModelStoreContainer" CdmEntityContainer="EducationInstitute">
+          <EntitySetMapping Name="AbsenceEtudients">
+            <EntityTypeMapping TypeName="EducationInstituteModel.AbsenceEtudient">
+              <MappingFragment StoreEntitySet="AbsenceEtudient">
+                <ScalarProperty Name="IdAbsence" ColumnName="IdAbsence" />
+                <ScalarProperty Name="dateDebut" ColumnName="dateDebut" />
+                <ScalarProperty Name="DateFin" ColumnName="DateFin" />
+                <ScalarProperty Name="Cause" ColumnName="Cause" />
+                <ScalarProperty Name="IdEtudient" ColumnName="IdEtudient" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="AbsenceProfesseurs">
+            <EntityTypeMapping TypeName="EducationInstituteModel.AbsenceProfesseur">
+              <MappingFragment StoreEntitySet="AbsenceProfesseur">
+                <ScalarProperty Name="IdAbsence" ColumnName="IdAbsence" />
+                <ScalarProperty Name="DateDebut" ColumnName="DateDebut" />
+                <ScalarProperty Name="DateFin" ColumnName="DateFin" />
+                <ScalarProperty Name="Cause" ColumnName="Cause" />
+                <ScalarProperty Name="IdProfesseur" ColumnName="IdProfesseur" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Etudients">
+            <EntityTypeMapping TypeName="EducationInstituteModel.Etudient">
+              <MappingFragment StoreEntitySet="Etudient">
+                <ScalarProperty Name="IdEtudient" ColumnName="IdEtudient" />
+                <ScalarProperty Name="CIN" ColumnName="CIN" />
+                <ScalarProperty Name="NomComplet" ColumnName="NomComplet" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="Telephone" ColumnName="Telephone" />
+                <ScalarProperty Name="Sexe" ColumnName="Sexe" />
+                <ScalarProperty Name="dateNaissance" ColumnName="dateNaissance" />
+                <ScalarProperty Name="Age" ColumnName="Age" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="EtudientGroupes">
+            <EntityTypeMapping TypeName="EducationInstituteModel.EtudientGroupe">
+              <MappingFragment StoreEntitySet="EtudientGroupe">
+                <ScalarProperty Name="IdGroupe" ColumnName="IdGroupe" />
+                <ScalarProperty Name="IdEtudient" ColumnName="IdEtudient" />
+                <ScalarProperty Name="Look" ColumnName="Look" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Formations">
+            <EntityTypeMapping TypeName="EducationInstituteModel.Formation">
+              <MappingFragment StoreEntitySet="Formation">
+                <ScalarProperty Name="IdFormation" ColumnName="IdFormation" />
+                <ScalarProperty Name="LibelleFormation" ColumnName="LibelleFormation" />
+                <ScalarProperty Name="Type_De_Formation" ColumnName="Type_De_Formation" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="FormationGroups">
+            <EntityTypeMapping TypeName="EducationInstituteModel.FormationGroup">
+              <MappingFragment StoreEntitySet="FormationGroup">
+                <ScalarProperty Name="IDFormation" ColumnName="IDFormation" />
+                <ScalarProperty Name="IDGroup" ColumnName="IDGroup" />
+                <ScalarProperty Name="Datedebut" ColumnName="Datedebut" />
+                <ScalarProperty Name="DateFin" ColumnName="DateFin" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Groupes">
+            <EntityTypeMapping TypeName="EducationInstituteModel.Groupe">
+              <MappingFragment StoreEntitySet="Groupe">
+                <ScalarProperty Name="IdGroupe" ColumnName="IdGroupe" />
+                <ScalarProperty Name="Libelle" ColumnName="Libelle" />
+                <ScalarProperty Name="MaxPlace" ColumnName="MaxPlace" />
+                <ScalarProperty Name="IdFormation" ColumnName="IdFormation" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Historiques">
+            <EntityTypeMapping TypeName="EducationInstituteModel.Historique">
+              <MappingFragment StoreEntitySet="Historique">
+                <ScalarProperty Name="IdAction" ColumnName="IdAction" />
+                <ScalarProperty Name="Action" ColumnName="Action" />
+                <ScalarProperty Name="dateAction" ColumnName="dateAction" />
+                <ScalarProperty Name="IdUtilisateur" ColumnName="IdUtilisateur" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="PieceEtudients">
+            <EntityTypeMapping TypeName="EducationInstituteModel.PieceEtudient">
+              <MappingFragment StoreEntitySet="PieceEtudient">
+                <ScalarProperty Name="IdPiece" ColumnName="IdPiece" />
+                <ScalarProperty Name="Chemin" ColumnName="Chemin" />
+                <ScalarProperty Name="Piece" ColumnName="Piece" />
+                <ScalarProperty Name="Photo" ColumnName="Photo" />
+                <ScalarProperty Name="IdEtudient" ColumnName="IdEtudient" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="PieceProfesseurs">
+            <EntityTypeMapping TypeName="EducationInstituteModel.PieceProfesseur">
+              <MappingFragment StoreEntitySet="PieceProfesseur">
+                <ScalarProperty Name="IdPiece" ColumnName="IdPiece" />
+                <ScalarProperty Name="Chemin" ColumnName="Chemin" />
+                <ScalarProperty Name="Photo" ColumnName="Photo" />
+                <ScalarProperty Name="piece" ColumnName="piece" />
+                <ScalarProperty Name="IdProfesseur" ColumnName="IdProfesseur" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Professeurs">
+            <EntityTypeMapping TypeName="EducationInstituteModel.Professeur">
+              <MappingFragment StoreEntitySet="Professeur">
+                <ScalarProperty Name="IdProf" ColumnName="IdProf" />
+                <ScalarProperty Name="CIN" ColumnName="CIN" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="Adresse" ColumnName="Adresse" />
+                <ScalarProperty Name="Telephone" ColumnName="Telephone" />
+                <ScalarProperty Name="NomComplet" ColumnName="NomComplet" />
+                <ScalarProperty Name="Sexe" ColumnName="Sexe" />
+                <ScalarProperty Name="DateNaissance" ColumnName="DateNaissance" />
+                <ScalarProperty Name="age" ColumnName="age" />
+                <ScalarProperty Name="Salaire" ColumnName="Salaire" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ProfesseurFormations">
+            <EntityTypeMapping TypeName="EducationInstituteModel.ProfesseurFormation">
+              <MappingFragment StoreEntitySet="ProfesseurFormation">
+                <ScalarProperty Name="IdFormation" ColumnName="IdFormation" />
+                <ScalarProperty Name="IdProfesseur" ColumnName="IdProfesseur" />
+                <ScalarProperty Name="Look" ColumnName="Look" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ProfesseurGroupes">
+            <EntityTypeMapping TypeName="EducationInstituteModel.ProfesseurGroupe">
+              <MappingFragment StoreEntitySet="ProfesseurGroupe">
+                <ScalarProperty Name="IdGroupe" ColumnName="IdGroupe" />
+                <ScalarProperty Name="IdProfesseur" ColumnName="IdProfesseur" />
+                <ScalarProperty Name="Look" ColumnName="Look" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Seances">
+            <EntityTypeMapping TypeName="EducationInstituteModel.Seance">
+              <MappingFragment StoreEntitySet="Seance">
+                <ScalarProperty Name="IdSeance" ColumnName="IdSeance" />
+                <ScalarProperty Name="Année_de_seance" ColumnName="Année_de_seance" />
+                <ScalarProperty Name="Mois_de_seance" ColumnName="Mois_de_seance" />
+                <ScalarProperty Name="Jour_de_seance" ColumnName="Jour_de_seance" />
+                <ScalarProperty Name="Heure_Debut" ColumnName="Heure_Debut" />
+                <ScalarProperty Name="Heure_Fin" ColumnName="Heure_Fin" />
+                <ScalarProperty Name="Etat" ColumnName="Etat" />
+                <ScalarProperty Name="Id_Professeur" ColumnName="Id_Professeur" />
+                <ScalarProperty Name="Id_Group" ColumnName="Id_Group" />
+                <ScalarProperty Name="Id_Formation" ColumnName="Id_Formation" />
+                <ScalarProperty Name="Salle" ColumnName="Salle" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Utilisateurs">
+            <EntityTypeMapping TypeName="EducationInstituteModel.Utilisateur">
+              <MappingFragment StoreEntitySet="Utilisateur">
+                <ScalarProperty Name="IdUtilisateur" ColumnName="IdUtilisateur" />
+                <ScalarProperty Name="CIN" ColumnName="CIN" />
+                <ScalarProperty Name="NomComplet" ColumnName="NomComplet" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="Password" ColumnName="Password" />
+                <ScalarProperty Name="Role" ColumnName="Role" />
+                <ScalarProperty Name="Photo" ColumnName="Photo" />
+                <ScalarProperty Name="Telephone" ColumnName="Telephone" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

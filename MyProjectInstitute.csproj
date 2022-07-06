@@ -1,0 +1,510 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{AA9AE851-71B0-4573-B478-5919C8CF9BE0}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <RootNamespace>MyProjectInstitute</RootNamespace>
+    <AssemblyName>MyProjectInstitute</AssemblyName>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <Deterministic>true</Deterministic>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Bunifu.UI.WinForms.BunifuButton">
+      <HintPath>..\..\C#\GUNA Project\Bunifu_UI_WinForms_1.11.5.1\Bunifu_UI_WinForms_1.11.5.1\Bunifu.UI.WinForms.BunifuButton.dll</HintPath>
+    </Reference>
+    <Reference Include="Bunifu.UI.WinForms.BunifuToolTip">
+      <HintPath>..\..\C#\GUNA Project\Bunifu_UI_WinForms_1.11.5.1\Bunifu_UI_WinForms_1.11.5.1\Bunifu.UI.WinForms.BunifuToolTip.dll</HintPath>
+    </Reference>
+    <Reference Include="Bunifu_UI_v1.5.3">
+      <HintPath>..\..\C#\GUNA Project\Bunifu_UI_WinForms_1.11.5.1\Bunifu_UI_WinForms_1.11.5.1\Bunifu_UI_v1.5.3.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="Guna.UI">
+      <HintPath>..\..\C#\GUNA Project\Guna.UI-Framework-Lib-master\Guna.UI WinForms\.net 3.5\Guna.UI.dll</HintPath>
+    </Reference>
+    <Reference Include="Guna.UI2, Version=2.0.0.1, Culture=neutral, PublicKeyToken=ad275b4be6718d4b, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>bin\Debug\Guna.UI2.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.VisualBasic" />
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Design" />
+    <Reference Include="System.Management" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Absence\AddAbsence.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Absence\AddAbsence.Designer.cs">
+      <DependentUpon>AddAbsence.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Absence\MainAbsence.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Absence\MainAbsence.Designer.cs">
+      <DependentUpon>MainAbsence.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Classes\Utilisateur.cs" />
+    <Compile Include="Compte\MainCompte.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Compte\MainCompte.Designer.cs">
+      <DependentUpon>MainCompte.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Compte\MettreAjour.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Compte\MettreAjour.Designer.cs">
+      <DependentUpon>MettreAjour.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Compte\ModifierCompte.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Compte\ModifierCompte.Designer.cs">
+      <DependentUpon>ModifierCompte.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Compte\Roles.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Compte\Roles.Designer.cs">
+      <DependentUpon>Roles.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DateDebutDateFin.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DateDebutDateFin.Designer.cs">
+      <DependentUpon>DateDebutDateFin.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Entity\AbsenceEtudient.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entity\AbsenceProfesseur.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entity\Etudient.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entity\EtudientGroupe.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entity\Formation.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entity\FormationGroup.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entity\Groupe.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entity\Historique.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entity\Model1.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Model1.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entity\Model1.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entity\Model1.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Model1.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Entity\PieceEtudient.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entity\PieceProfesseur.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entity\Professeur.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entity\ProfesseurFormation.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entity\ProfesseurGroupe.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entity\Seance.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entity\Utilisateur.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Etudiant\AddEtudiant.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Etudiant\AddEtudiant.Designer.cs">
+      <DependentUpon>AddEtudiant.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Etudiant\Cerificat.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Etudiant\Cerificat.Designer.cs">
+      <DependentUpon>Cerificat.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Etudiant\Cert.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Etudiant\Cert.Designer.cs">
+      <DependentUpon>Cert.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Etudiant\MainEtudiant.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Etudiant\MainEtudiant.Designer.cs">
+      <DependentUpon>MainEtudiant.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Etudiant\ModifierEtudiant.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Etudiant\ModifierEtudiant.Designer.cs">
+      <DependentUpon>ModifierEtudiant.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Formation\Formation_Group_Professeur.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formation\Formation_Group_Professeur.Designer.cs">
+      <DependentUpon>Formation_Group_Professeur.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Formation\MainFormation.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Formation\MainFormation.Designer.cs">
+      <DependentUpon>MainFormation.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Formation\ModiferFormation.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formation\ModiferFormation.Designer.cs">
+      <DependentUpon>ModiferFormation.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Group\MainGroup.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Group\MainGroup.Designer.cs">
+      <DependentUpon>MainGroup.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Group\ModifierGroup.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Group\ModifierGroup.Designer.cs">
+      <DependentUpon>ModifierGroup.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Group\ProfesseurEtEtudiant DeGroupSelectionné.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Group\ProfesseurEtEtudiant DeGroupSelectionné.Designer.cs">
+      <DependentUpon>ProfesseurEtEtudiant DeGroupSelectionné.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Historique\MainHistorique.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Historique\MainHistorique.Designer.cs">
+      <DependentUpon>MainHistorique.cs</DependentUpon>
+    </Compile>
+    <Compile Include="LoginForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="LoginForm.Designer.cs">
+      <DependentUpon>LoginForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MainPage.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MainPage.Designer.cs">
+      <DependentUpon>MainPage.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Message\ConfirmSuppressionProfesseur.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Message\ConfirmSuppressionProfesseur.Designer.cs">
+      <DependentUpon>ConfirmSuppressionProfesseur.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Message\MessageRemplirLabel.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Message\MessageRemplirLabel.Designer.cs">
+      <DependentUpon>MessageRemplirLabel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Message\MessageZwin.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Message\MessageZwin.Designer.cs">
+      <DependentUpon>MessageZwin.cs</DependentUpon>
+    </Compile>
+    <Compile Include="NoSuccess.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="NoSuccess.Designer.cs">
+      <DependentUpon>NoSuccess.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Professeur\AddProf.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Professeur\AddProf.Designer.cs">
+      <DependentUpon>AddProf.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Professeur\MainProfesseur.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Professeur\MainProfesseur.Designer.cs">
+      <DependentUpon>MainProfesseur.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Professeur\ModifyProfesseur.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Professeur\ModifyProfesseur.Designer.cs">
+      <DependentUpon>ModifyProfesseur.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ResetPasswordForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ResetPasswordForm.Designer.cs">
+      <DependentUpon>ResetPasswordForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Seance\AddSeance.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Seance\AddSeance.Designer.cs">
+      <DependentUpon>AddSeance.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Seance\MainSeance.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Seance\MainSeance.Designer.cs">
+      <DependentUpon>MainSeance.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Seance\ModifySeance.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Seance\ModifySeance.Designer.cs">
+      <DependentUpon>ModifySeance.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Success.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Success.Designer.cs">
+      <DependentUpon>Success.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserCode.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UserCode.Designer.cs">
+      <DependentUpon>UserCode.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="Absence\AddAbsence.resx">
+      <DependentUpon>AddAbsence.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Absence\MainAbsence.resx">
+      <DependentUpon>MainAbsence.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Compte\MainCompte.resx">
+      <DependentUpon>MainCompte.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Compte\MettreAjour.resx">
+      <DependentUpon>MettreAjour.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Compte\ModifierCompte.resx">
+      <DependentUpon>ModifierCompte.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Compte\Roles.resx">
+      <DependentUpon>Roles.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DateDebutDateFin.resx">
+      <DependentUpon>DateDebutDateFin.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Etudiant\AddEtudiant.resx">
+      <DependentUpon>AddEtudiant.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Etudiant\Cerificat.resx">
+      <DependentUpon>Cerificat.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Etudiant\Cert.resx">
+      <DependentUpon>Cert.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Etudiant\MainEtudiant.resx">
+      <DependentUpon>MainEtudiant.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Etudiant\ModifierEtudiant.resx">
+      <DependentUpon>ModifierEtudiant.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formation\Formation_Group_Professeur.resx">
+      <DependentUpon>Formation_Group_Professeur.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formation\MainFormation.resx">
+      <DependentUpon>MainFormation.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formation\ModiferFormation.resx">
+      <DependentUpon>ModiferFormation.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Group\MainGroup.resx">
+      <DependentUpon>MainGroup.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Group\ModifierGroup.resx">
+      <DependentUpon>ModifierGroup.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Group\ProfesseurEtEtudiant DeGroupSelectionné.resx">
+      <DependentUpon>ProfesseurEtEtudiant DeGroupSelectionné.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Historique\MainHistorique.resx">
+      <DependentUpon>MainHistorique.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="LoginForm.resx">
+      <DependentUpon>LoginForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MainPage.resx">
+      <DependentUpon>MainPage.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Message\ConfirmSuppressionProfesseur.resx">
+      <DependentUpon>ConfirmSuppressionProfesseur.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Message\MessageRemplirLabel.resx">
+      <DependentUpon>MessageRemplirLabel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Message\MessageZwin.resx">
+      <DependentUpon>MessageZwin.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="NoSuccess.resx">
+      <DependentUpon>NoSuccess.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Professeur\AddProf.resx">
+      <DependentUpon>AddProf.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Professeur\MainProfesseur.resx">
+      <DependentUpon>MainProfesseur.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Professeur\ModifyProfesseur.resx">
+      <DependentUpon>ModifyProfesseur.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="ResetPasswordForm.resx">
+      <DependentUpon>ResetPasswordForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Seance\AddSeance.resx">
+      <DependentUpon>AddSeance.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Seance\MainSeance.resx">
+      <DependentUpon>MainSeance.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Seance\ModifySeance.resx">
+      <DependentUpon>ModifySeance.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Success.resx">
+      <DependentUpon>Success.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserCode.resx">
+      <DependentUpon>UserCode.cs</DependentUpon>
+    </EmbeddedResource>
+    <EntityDeploy Include="Entity\Model1.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>Model1.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <None Include="Entity\Model1.edmx.diagram">
+      <DependentUpon>Model1.edmx</DependentUpon>
+    </None>
+    <None Include="packages.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Entity\Model1.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>Model1.edmx</DependentUpon>
+      <LastGenOutput>Model1.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="Entity\Model1.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>Model1.edmx</DependentUpon>
+      <LastGenOutput>Model1.cs</LastGenOutput>
+    </Content>
+    <Content Include="Images\Email.png" />
+    <Content Include="Images\EmailPhoto.png" />
+    <Content Include="Images\EmailPhoto2.png" />
+    <Content Include="Images\EyePassword.png" />
+    <Content Include="Images\Lockpassword.png" />
+    <Content Include="Images\LoginImage.PNG" />
+    <Content Include="Images\LoginPhoto.png" />
+    <Content Include="Images\LoginPhoto2.png" />
+    <Content Include="Images\LuckPassword.png" />
+    <Content Include="Images\LuckPassword2.png" />
+    <Content Include="Images\PasswordEye.png" />
+    <Content Include="Images\PasswordEyeHide.png" />
+    <Content Include="Images\PasswordEyeShow.png" />
+    <Content Include="Images\RessetPassword.PNG" />
+    <Content Include="Images\RetourToLoginForm.PNG" />
+    <Content Include="Images\RetourToLoginForm2.png" />
+    <Content Include="Images\UnlookPassword.png" />
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>

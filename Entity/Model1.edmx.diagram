@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="4586e4f686a94fa18d7130c05ab574ea" Name="Diagram1" ZoomLevel="42">
+        <EntityTypeShape EntityType="EducationInstituteModel.AbsenceEtudient" Width="1.5" PointX="11" PointY="2.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="EducationInstituteModel.AbsenceProfesseur" Width="1.5" PointX="3" PointY="6.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="EducationInstituteModel.Etudient" Width="1.5" PointX="8.75" PointY="3.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="EducationInstituteModel.EtudientGroupe" Width="1.5" PointX="14" PointY="3.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="EducationInstituteModel.Formation" Width="1.5" PointX="1.5" PointY="2.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="EducationInstituteModel.FormationGroup" Width="1.5" PointX="6" PointY="2" IsExpanded="true" />
+        <EntityTypeShape EntityType="EducationInstituteModel.Groupe" Width="1.5" PointX="3.75" PointY="2.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="EducationInstituteModel.Historique" Width="1.5" PointX="11" PointY="12.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="EducationInstituteModel.PieceEtudient" Width="1.5" PointX="11" PointY="8.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="EducationInstituteModel.PieceProfesseur" Width="1.5" PointX="3" PointY="9.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="EducationInstituteModel.Professeur" Width="1.5" PointX="0.75" PointY="7.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="EducationInstituteModel.ProfesseurFormation" Width="1.5" PointX="6" PointY="8.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="EducationInstituteModel.ProfesseurGroupe" Width="1.5" PointX="6" PointY="5.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="EducationInstituteModel.Seance" Width="1.5" PointX="6" PointY="11.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="EducationInstituteModel.Utilisateur" Width="1.5" PointX="8.75" PointY="12" IsExpanded="true" />
+        <AssociationConnector Association="EducationInstituteModel.FK_AbsenceEtudient_Etudient" ManuallyRouted="false" />
+        <AssociationConnector Association="EducationInstituteModel.FK_AbsenceProfesseur_Professeur" ManuallyRouted="false" />
+        <AssociationConnector Association="EducationInstituteModel.FK_EtudientGroupe_Etudient" ManuallyRouted="false" />
+        <AssociationConnector Association="EducationInstituteModel.FK_PieceEtudient_Etudient" ManuallyRouted="false" />
+        <AssociationConnector Association="EducationInstituteModel.FK_EtudientGroupe_Groupe" ManuallyRouted="false" />
+        <AssociationConnector Association="EducationInstituteModel.FK_FormationGroup_Formation" ManuallyRouted="false" />
+        <AssociationConnector Association="EducationInstituteModel.FK_Groupe_Formation" ManuallyRouted="false" />
+        <AssociationConnector Association="EducationInstituteModel.FK_ProfesseurFormation_Formation" ManuallyRouted="false" />
+        <AssociationConnector Association="EducationInstituteModel.FK_Seance_Formation" ManuallyRouted="false" />
+        <AssociationConnector Association="EducationInstituteModel.FK_FormationGroup_Groupe" ManuallyRouted="false" />
+        <AssociationConnector Association="EducationInstituteModel.FK_ProfesseurGroupe_Groupe" ManuallyRouted="false" />
+        <AssociationConnector Association="EducationInstituteModel.FK_Seance_Groupe" ManuallyRouted="false" />
+        <AssociationConnector Association="EducationInstituteModel.FK_Historique_Historique" ManuallyRouted="false" />
+        <AssociationConnector Association="EducationInstituteModel.FK_PieceProfesseur_Professeur" ManuallyRouted="false" />
+        <AssociationConnector Association="EducationInstituteModel.FK_ProfesseurFormation_Professeur" ManuallyRouted="false" />
+        <AssociationConnector Association="EducationInstituteModel.FK_ProfesseurGroupe_Professeur" ManuallyRouted="false" />
+        <AssociationConnector Association="EducationInstituteModel.FK_Seance_Professeur" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>
